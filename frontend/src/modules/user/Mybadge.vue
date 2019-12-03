@@ -116,7 +116,7 @@
       <hr>
       <b-button @click="$bvModal.hide('availed')" variant="primary" class="btn">OK</b-button>
       </div>
-    </b-modal>
+    </b-    >
     <b-modal
       class="modl"
       id="pendings"
@@ -183,6 +183,7 @@ export default {
           this.availing = false;
           this.reset();
           this.$bvModal.hide("availBadge-modal");
+          alert("addasf")
           this.badgelist = res.data.badges.reverse();
           // this.pending = res.data.pendingbadges;
           // this.availedbadge = res.data.availedbadge;
