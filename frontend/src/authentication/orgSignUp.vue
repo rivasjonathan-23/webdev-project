@@ -147,6 +147,7 @@ export default {
       };
       var val = this.validate();
       if (val) {
+        this.hasError = false;
         this.$store
           .dispatch("orgsignup", userInfo)
           .then(() => {

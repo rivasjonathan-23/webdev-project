@@ -81,6 +81,7 @@ export default {
       console.log("response")
       console.log(resp.data)
        this.userInfo = resp.data;
+       console.log(resp.data)
        console.log(this.userInfo.profession)
        if (this.userInfo.username !=  null) {
        this.gotinfo = true;

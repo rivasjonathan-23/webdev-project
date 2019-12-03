@@ -62,7 +62,7 @@
             </span>
           </div>
           <div class="recipient">
-            <table class="recip" v-if="badge.recipient > 0">
+            <table class="recip" v-if="badge.recipients.length > 0">
               <tr class="thead">
                 <td class="imp">
                   <p class="TH nmrgn">Username</p>
@@ -74,19 +74,19 @@
               </tr>
               <tr
                 class="reclist"
-                v-for="(recipient, index) in badge.recipients"
+                v-for="(rec, index) in badge.recipients"
                 :key="index"
-                @mouseenter="hover = recipient._id"
+                @mouseenter="hover = rec.username"
                 @mouseleave="hover = ''"
               >
                 <td class="imp">
-                  <p class="nmrgn">{{recipient.username}}</p>
+                  <p class="nmrgn">{{rec.username}}</p>
                 </td>
                 <td class="imp1">
-                  <p class="nmrgn">{{recipient.fullname}}</p>
+                  <p class="nmrgn">{{rec.fullname}}</p>
                 </td>
                 <td class="nimp">
-                    <span @click="remove(badge._id, badge.code, recipient.username, recipient.fullname)" v-if="hover === recipient._id" class="remove nmrgn">Remove</span>
+                    <span @click="remove(badge._id, badge.code, rec.username, rec.fullname)" v-if="hover === rec.username" class="remove nmrgn">Remove</span>
                 </td>
               </tr>
             </table>
@@ -98,7 +98,7 @@
               id="cert"
               class="btn2"
               v-bind:class="{fit: sm}"
-              v-on:click="getBadgeDetail('certify-modal', badge._id, badge.code, badge.date, badge.recipient)"
+              v-on:click="getBadgeDetail('certify-modal', badge._id, badge.code, badge.date, badge.recipients)"
             >Certify Recipients</b-button>
 
             <b-button
@@ -258,14 +258,14 @@ export default {
           this.hasdata = false;
         } else {
           this.hasdata = true;
-          console.log("badges found: "+this.badges[0]._id);
+          console.log(this.badges[0].recipients[1].username);
         }
         
         
         var num = 0;
         this.badges.forEach(badge => {
           badge["imgnum"] = `http://localhost:8081/static/${badge.backgroundImg}`;
-           console.log(badge.imgnum)
+          //  console.log(badge.imgnum)
           // num += 1;
           // if (num > 10) {
           //   num = 0;

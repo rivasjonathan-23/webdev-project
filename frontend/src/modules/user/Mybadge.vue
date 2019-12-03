@@ -212,7 +212,8 @@ export default {
           //   });
         })
         .catch((err) => {
-          if (err.response != undefined) {
+          // console.log(err);
+          // if (err.response != undefined) {
           if (err.response.status === 404) {
             this.err = true;            
           } else {
@@ -221,10 +222,10 @@ export default {
           console.log(err)
           this.availing = false;
           $(".binput").css({ "border-color": "red" });
-          } else {
-            alert("Network Error! Please try again later.");
-            this.availing = false;
-          }
+        //   } else {
+        //     alert("Network Error! Please try again later.");
+        //     this.availing = false;
+        //   }
         });
     },
     reset() {
